@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.finalyearproject">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FinalYearProject">
+        <activity android:name=".Customer_foodItems" />
+
+        <activity android:name=".Customer" />
+        <activity android:name=".Customer_registerANewAccount_activity" />
+        <activity android:name=".Customer_login_activity" />
+        <activity android:name=".utility.OrdersOnQueue" />
+        <activity android:name=".Employ" />
+        <activity android:name=".Employ_login_activity" />
+        <activity android:name=".Admin_new_food_item_detail_activity" />
+        <activity android:name=".Admin_foodItemActivity" />
+        <activity android:name=".admin" />
+        <activity android:name=".admin_login_activity" />
+        <activity android:name=".admin_employ_activity" />
+        <activity android:name=".welcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <service
+            android:name=".MyIntentServiceForEmploy"
+            android:exported="false"></service>
+    </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+</manifest>

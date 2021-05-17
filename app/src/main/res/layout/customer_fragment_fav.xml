@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="@dimen/main_padding"
+    android:paddingRight="@dimen/main_padding"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/main_padding"
+    android:background="@color/background_color"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:paddingTop="8dp"
+        android:paddingBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/great_vibes"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/actionbar_background"
+        android:gravity="center"
+        android:text="Home"
+        android:textColor="@color/text_color_white"
+        android:textSize="44sp" />
+
+<!--    <ListView-->
+<!--        android:layout_marginTop="50dp"-->
+<!--        android:id="@+id/myListView"-->
+<!--        android:layout_marginBottom="25dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_weight="2"-->
+<!--        android:layout_height="0dp"/>-->
+<!--    <HorizontalScrollView-->
+<!--            android:layout_marginTop="50dp"-->
+<!--            android:layout_marginBottom="25dp"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_weight="2"-->
+<!--            android:layout_height="0dp">-->
+
+<!--        <ListView-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:id="@+id/myListView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
+
+<!--        </ListView>-->
+
+<!--    </HorizontalScrollView>-->
+
+    <com.yarolegovich.discretescrollview.DiscreteScrollView
+        android:id="@+id/picker"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        app:dsv_orientation="horizontal" />
+
+    <androidx.cardview.widget.CardView
+        style="@style/MyCardViewForEmploy"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:padding="15dp"
+            android:orientation="horizontal"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/text_color_white"
+                    android:text="Book a"
+                    android:textSize="40dp"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/text_color_white"
+                    android:text="Table"
+                    android:textSize="60dp"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_gravity="end"
+                android:src="@drawable/ic_dining_table"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="0dp"
+                android:id="@+id/basketButton"
+                android:layout_weight="1.5"
+                android:text="Basket"
+                android:layout_marginStart="10dp"
+                android:textAllCaps="false"
+                android:layout_marginEnd="15dp"
+                android:textSize="20sp"
+                android:background="@drawable/actionbar_background"
+                android:textColor="@color/text_color_white"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:text="Order On Call"
+                android:layout_weight="2"
+                android:textSize="20sp"
+                android:textAllCaps="false"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/actionbar_background"
+                android:textColor="@color/text_color_white"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:padding="50dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background_color"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="342"
+        android:textSize="20dp"
+        android:layout_marginStart="10dp"
+        android:id="@+id/placeOrder_detail"
+        android:layout_marginBottom="30dp"
+        android:layout_gravity="start"
+        android:textColor="@color/button_color_black1"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="342"
+        android:id="@+id/placeOrder_price"
+        android:textColor="@color/button_color_black1"
+        android:textSize="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="30dp"
+        android:layout_gravity="start"
+        android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:layout_marginStart="10dp"
+        android:layout_gravity="start"
+        android:layout_width="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/chooseImageView"
+            android:text="Clear Basket"
+            android:layout_gravity="end"
+            android:textSize="15sp"
+            android:textColor="@color/button_color_black1"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:id="@+id/placeOrder_clearBacket"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_toEndOf="@id/chooseImageView"
+            android:src="@drawable/ic_image"
+            android:layout_height="50dp"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:text="Place Order"
+        android:theme="@style/buttonYellow"
+        android:textAllCaps="false"
+        android:fontFamily="@font/great_vibes"
+        android:textColor="@color/button_color_black1"
+        android:layout_gravity="center_horizontal"
+        android:textSize="25sp"
+        android:id="@+id/placeOrder_Button"
+        android:textStyle="bold"
+        android:background="@drawable/actionbar_background"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

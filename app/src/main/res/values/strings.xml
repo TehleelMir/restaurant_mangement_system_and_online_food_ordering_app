@@ -1,0 +1,25 @@
+<resources>
+
+    <string name="app_name">final year project</string>
+    <string name="who_am_i">Who Am I?</string>
+    <string name="customer">Customer</string>
+    <string name="employ">Employ</string>
+    <string name="admin">Admin</string>
+    <string name="waiter_cook">Waiter/Cook</string>
+    <string name="login_as_adming">Login As Admin</string>
+    <string name="menu">Menu</string>
+    <string name="employees">Employees</string>
+    <string name="profile">Profile</string>
+    <string name="login_as_employ">Login As Employ</string>
+    <string name="login_as_customer">Login As Customer</string>
+    <string name="register_customer">Register</string>
+
+<!--    menu-->
+    <string name="coffee_tea">Coffee/Tea</string>
+    <string name="drink_shakes">Drinks/Shakes</string>
+    <string name="pizza_burger">Pizza/Burgers</string>
+    <string name="lunch_dinner">Lunch/Dinner</string>
+    <string name="salad_soup">Salad/Soup</string>
+    <string name="ice_cream">Ice cream \n  Desserts</string>
+
+</resources>

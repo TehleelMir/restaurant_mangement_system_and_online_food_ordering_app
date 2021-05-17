@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/background_color"
+    tools:context=".Admin_foodItemActivity"
+    android:layout_height="match_parent">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:paddingRight="@dimen/main_padding"
+    android:paddingTop="@dimen/main_padding"
+    android:paddingLeft="@dimen/main_padding"
+    android:background="@color/background_color"
+    android:layout_height="match_parent">
+
+
+
+    <TextView
+        android:paddingTop="8dp"
+        android:paddingBottom="5dp"
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/great_vibes"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/actionbar_background"
+        android:gravity="center"
+        android:id="@+id/title_for_food_items_admin"
+        android:textColor="@color/text_color_white"
+        android:textSize="44sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Add New Item"
+            android:textAllCaps="false"
+            android:layout_marginEnd="20dp"
+            android:textColor="@color/text_color_white"
+            android:textSize="25sp"
+            android:background="@drawable/actionbar_background"
+            android:id="@+id/addNewFoodItem"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:layout_width="50dp"
+            android:src="@drawable/ic_flat"
+            android:layout_height="50dp"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/recyclerview_adminFoodItems"/>
+
+
+
+</LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        style="@style/MyCardViewForEmploy"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        app:cardCornerRadius="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Name"
+            android:id="@+id/employNameHere"
+            android:textSize="22sp"
+            android:textColor="@color/text_color_white"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:textSize="22sp"
+            android:text="Id"
+            android:id="@+id/employIdHere"
+            android:textColor="@color/text_color_white"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1.5"
+                android:text="Edit"
+                android:theme="@style/buttonYellow"
+                android:textAllCaps="false"
+                android:layout_marginEnd="15dp"
+                android:textSize="20sp"
+                android:background="@drawable/actionbar_background"
+                android:id="@+id/editEmployHere"
+                android:textColor="@color/button_color_black1"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:text="Remove"
+                android:layout_weight="2"
+                android:textSize="20sp"
+                android:textAllCaps="false"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/actionbar_background"
+                android:textColor="@color/button_color_black1"
+                android:theme="@style/buttonYellow"
+                android:id="@+id/deleteEmployHere"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>

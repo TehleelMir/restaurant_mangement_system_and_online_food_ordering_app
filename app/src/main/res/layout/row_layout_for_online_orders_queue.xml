@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<LinearLayout-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:orientation="vertical"-->
+<!--    android:layout_height="wrap_content">-->
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:id="@+id/order_name"-->
+<!--        android:layout_height="wrap_content"/>-->
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:id="@+id/order_price"-->
+<!--        android:layout_height="wrap_content"/>-->
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:id="@+id/order_PersonName"-->
+<!--        android:layout_height="wrap_content"/>-->
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:id="@+id/order_PersonAddress"-->
+<!--        android:layout_height="wrap_content"/>-->
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:id="@+id/order_PersonEmail"-->
+<!--        android:layout_height="wrap_content"/>-->
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:id="@+id/order_PersonNumber"-->
+<!--        android:layout_height="wrap_content"/>-->
+
+<!--    <Button-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:text="message back"-->
+<!--        android:id="@+id/order_done"-->
+<!--        android:layout_height="wrap_content"/>-->
+
+<!--</LinearLayout>-->
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MyCardViewForEmploy"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp"
+    app:cardCornerRadius="40dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textColor="@color/text_color_white"
+                android:textSize="20dp"
+                android:id="@+id/order_name"
+                android:layout_width="wrap_content"
+                android:text="Large pizza 3"
+                android:layout_weight="1"
+                android:layout_height="0dp"/>
+            <TextView
+                android:textColor="@color/text_color_white"
+                android:textSize="20dp"
+                android:id="@+id/order_price"
+                android:layout_width="wrap_content"
+                android:text="Price"
+                android:layout_weight="1"
+                android:layout_height="0dp"/>
+            <TextView
+                android:textColor="@color/text_color_white"
+                android:textSize="20dp"
+                android:id="@+id/order_PersonName"
+                android:layout_width="wrap_content"
+                android:text="frome"
+                android:layout_weight="1"
+                android:layout_height="0dp"/>
+            <TextView
+                android:textColor="@color/text_color_white"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:text="number"
+                android:id="@+id/order_PersonNumber"
+                android:layout_weight="1"
+                android:layout_height="0dp"/>
+            <TextView
+                android:textColor="@color/text_color_white"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:text="email"
+                android:id="@+id/order_PersonEmail"
+                android:layout_weight="1"
+                android:layout_height="0dp"/>
+            <TextView
+                android:textColor="@color/text_color_white"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:text="address"
+                android:id="@+id/order_PersonAddress"
+                android:layout_weight="1"
+                android:layout_height="0dp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:src="@drawable/ic_delivery_man"
+                android:layout_height="200dp"/>
+
+            <Button
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:text="Message Back"
+                android:theme="@style/buttonYellow"
+                android:textAllCaps="false"
+                android:textSize="20sp"
+                android:background="@drawable/actionbar_background"
+                android:id="@+id/order_done"
+                android:textColor="@color/button_color_black1"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

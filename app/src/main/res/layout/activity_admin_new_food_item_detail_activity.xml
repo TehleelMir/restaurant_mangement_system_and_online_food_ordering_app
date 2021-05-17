@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="@dimen/main_padding"
+    android:background="@color/background_color"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Admin_new_food_item_detail_activity">
+
+    <TextView
+        android:paddingTop="8dp"
+        android:paddingBottom="5dp"
+        android:layout_marginBottom="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="New Item"
+        android:fontFamily="@font/great_vibes"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/actionbar_background"
+        android:gravity="center"
+        android:id="@+id/title_for_food_items_admin"
+        android:textColor="@color/text_color_white"
+        android:textSize="44sp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:hint="New Food Item Name"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxStrokeColor="@color/button_color_black1"
+        app:hintTextColor="@color/button_color_black2"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:inputType="textEmailAddress"
+            android:id="@+id/foodName"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:hint="Discription.."
+        android:layout_marginTop="5dp"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxStrokeColor="@color/button_color_black1"
+        app:hintTextColor="@color/button_color_black2"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:inputType="textEmailAddress"
+            android:maxLength="100"
+            android:id="@+id/foodDiscription"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:hint="Price"
+        android:layout_marginTop="5dp"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxStrokeColor="@color/button_color_black1"
+        app:hintTextColor="@color/button_color_black2"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:inputType="textEmailAddress"
+            android:id="@+id/foodPrice"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/chooseImageView"
+            android:text="Add Image"
+            android:layout_gravity="end"
+            android:textSize="15sp"
+            android:textColor="@color/button_color_black1"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:id="@+id/chooseImage"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_toEndOf="@id/chooseImageView"
+            android:src="@drawable/ic_image"
+            android:layout_height="50dp"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:text="Add Item"
+        android:textAllCaps="false"
+        android:fontFamily="@font/great_vibes"
+        android:textColor="@color/text_color_white"
+        android:layout_gravity="end"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:background="@drawable/actionbar_background"
+        android:id="@+id/addItem"
+        android:layout_height="wrap_content"/>
+
+
+<!--    -->
+<!--    <EditText-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:hint="food name"-->
+<!--        android:id="@+id/foodName"-->
+<!--        android:layout_height="wrap_content"/>-->
+<!--    <EditText-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:hint="food discription"-->
+<!--        android:id="@+id/foodDiscription"-->
+<!--        android:layout_height="wrap_content"/>-->
+<!--    <EditText-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:hint="food price"-->
+<!--        android:id="@+id/foodPrice"-->
+<!--        android:layout_height="wrap_content"/>-->
+<!--    <Button-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:text="choose image"-->
+<!--        android:id="@+id/chooseImage"-->
+<!--        android:layout_height="wrap_content"/>-->
+<!--    <Button-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:text="add item"-->
+<!--        android:id="@+id/addItem"-->
+<!--        android:layout_height="wrap_content"/>-->
+
+</LinearLayout>

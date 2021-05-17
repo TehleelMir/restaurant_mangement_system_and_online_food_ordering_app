@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<LinearLayout-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:orientation="vertical"-->
+<!--    android:layout_height="match_parent">-->
+
+<!--    <EditText-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:hint="food name"-->
+<!--        android:id="@+id/TakeOrder_order"-->
+<!--        android:layout_height="wrap_content"/>-->
+<!--    <EditText-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:hint="table number"-->
+<!--        android:id="@+id/TakeOrder_tableNumber"-->
+<!--        android:layout_height="wrap_content"/>-->
+<!--    <Button-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:text="push to the queue"-->
+<!--        android:id="@+id/TakeOrder_pushOrder"-->
+<!--        android:layout_height="wrap_content"/>-->
+
+<!--</LinearLayout>-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:padding="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background_color"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_gravity="center_horizontal"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:hint="Order Detail"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxStrokeColor="@color/button_color_black1"
+        app:hintTextColor="@color/button_color_black2"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:inputType="textEmailAddress"
+            android:id="@+id/TakeOrder_order"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_gravity="center_horizontal"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:hint="Table Number"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusTopStart="15dp"
+        app:boxStrokeColor="@color/button_color_black1"
+        app:hintTextColor="@color/button_color_black2"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:inputType="textEmailAddress"
+            android:id="@+id/TakeOrder_tableNumber"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:text="Add Order To Queue"
+        android:textAllCaps="false"
+        android:fontFamily="@font/great_vibes"
+        android:textColor="@color/text_color_white"
+        android:layout_gravity="center_horizontal"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:background="@drawable/actionbar_background"
+        android:id="@+id/TakeOrder_pushOrder"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
