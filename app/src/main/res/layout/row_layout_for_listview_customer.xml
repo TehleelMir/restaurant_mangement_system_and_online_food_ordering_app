@@ -18,9 +18,23 @@
         android:layout_height="match_parent">
         <ImageView
             android:layout_width="match_parent"
-            android:src="@drawable/online_orders"
+            android:src="@drawable/imagone"
+            android:id="@+id/image"
             android:scaleType="centerCrop"
             android:layout_height="match_parent"/>
+
+        <TextView
+            android:text="Today's special"
+            android:layout_alignBottom="@id/image"
+            android:textColor="@color/white"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="26sp"
+            android:fontFamily="@font/great_vibes"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

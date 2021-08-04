@@ -32,7 +32,9 @@ public class AddToBusketModel {
             tempOrder += temp2.getCount()+" "+temp2.getFoodItemName()+" &";
             tempPrice += temp2.getPricePerItem() * temp2.getCount();
         }
+        if(list.size() > 0)
         return new AddToBusketModel(tempOrder.substring(0 , tempOrder.length()-1) , tempPrice );
+        else return null;
     }
 
     public String getFoodItemName() {

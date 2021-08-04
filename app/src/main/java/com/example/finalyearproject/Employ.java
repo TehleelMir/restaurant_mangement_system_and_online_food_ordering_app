@@ -65,6 +65,6 @@ public class Employ extends AppCompatActivity implements CustomDialog_TakeOrder.
     @Override
     public void onClick(String order, String tableNumber) {
         TakeOrderModel temp = new TakeOrderModel(order , tableNumber , getIntent().getStringExtra("name") , getIntent().getStringExtra("id"));
-        firebase.pushOrder(temp);
+        firebase.pushOrder(temp , this);
     }
 }

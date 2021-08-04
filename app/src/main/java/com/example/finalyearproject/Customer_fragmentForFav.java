@@ -1,6 +1,8 @@
 package com.example.finalyearproject;
 
 import android.app.AlertDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,8 +35,8 @@ public class Customer_fragmentForFav extends Fragment {
 
     private void setListView(View view) {
         ArrayList<DataModelForCustomerListView> temp = new ArrayList<>();
-        temp.add(new DataModelForCustomerListView("one" , 2));
-        temp.add(new DataModelForCustomerListView("two" , 3));
+        temp.add(new DataModelForCustomerListView("one" , 1));
+        temp.add(new DataModelForCustomerListView("two" , 2));
         temp.add(new DataModelForCustomerListView("three" , 3));
 
         DiscreteScrollView scrollView = view.findViewById(R.id.picker);
@@ -47,17 +50,34 @@ public class Customer_fragmentForFav extends Fragment {
         });
 //        listView = view.findViewById(R.id.myListView);
 //        listView.setAdapter(new ArrayAdapterForCustomer(temp , getActivity()));
+
+        view.findViewById(R.id.order_on_call).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:7006481175"));
+                startActivity(intent);
+            }
+        });
+
+        view.findViewById(R.id.bookATable).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext() , "Firebase Database: Your Firebase Free Storage is full!" , Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     private void showDialog(){
-//        AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
-//        TextView textView = new TextView(getActivity());
+
         AddToBusketModel addToBusketModel = new AddToBusketModel();
         AddToBusketModel finalorder = addToBusketModel.getFinalOrder();
-//        String x = finalorder.getOrder() +"   "+ finalorder.getPrice();
-//        textView.setText(x);
-//        dialog.setView(textView);
-//        dialog.show();
+
+        if(finalorder == null) {
+            Toast.makeText(getContext(), "Basket is empty", Toast.LENGTH_SHORT).show();
+            return;
+        }
         CustomeDialog_placeOrder temp = new CustomeDialog_placeOrder(getActivity() , finalorder.getOrder() , finalorder.getPrice());
         temp.show();
     }

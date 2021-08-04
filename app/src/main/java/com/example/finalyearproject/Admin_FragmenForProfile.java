@@ -80,7 +80,7 @@ public class Admin_FragmenForProfile extends Fragment {
                         auth.sendPasswordResetEmail(mail).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                Toast.makeText(view.getContext(), "reseet link send to your password", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(view.getContext(), "Reset password link is sent to your email", Toast.LENGTH_SHORT).show();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override

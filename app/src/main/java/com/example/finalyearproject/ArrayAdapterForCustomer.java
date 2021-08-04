@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalyearproject.utility.DataModelForCustomerListView;
@@ -36,7 +37,12 @@ public class ArrayAdapterForCustomer extends RecyclerView.Adapter<ArrayAdapterFo
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-
+        if(position == 0)
+            holder.imageView.setBackground(context.getResources().getDrawable(R.drawable.imagone));
+        else if(position == 1)
+            holder.imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.imagetwo));
+        else if(position == 2)
+            holder.imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.imagethree));
     }
 
     @Override
@@ -50,6 +56,7 @@ public class ArrayAdapterForCustomer extends RecyclerView.Adapter<ArrayAdapterFo
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+            imageView = itemView.findViewById(R.id.image);
         }
     }
 }

@@ -99,6 +99,7 @@ public class firebase {
     }
 
     public static void isCustomerValid(String email , String password , Context context){
+        ProgressDialog progressDialog = showProgressBar(context);
         firebaseAuth.signInWithEmailAndPassword(email , password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -109,37 +110,45 @@ public class firebase {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if(snapshot.getValue() == null){
-                                Toast.makeText(context, "email is vaid but not as adminnnnnnnn", Toast.LENGTH_SHORT).show();
+                                hideProgressBar(progressDialog);
+                                Toast.makeText(context, "email is vaid but not as admin", Toast.LENGTH_SHORT).show();
                                 return;
                             }
 
                             String temp = snapshot.child("type").getValue().toString();
                             if (temp.equals("customer")) {
+                                hideProgressBar(progressDialog);
                                 setValueToSharedPref("CUSTOMER" , context);
                                 context.startActivity(new Intent(context, Customer.class));
-                            } else
+                            } else{
+                                hideProgressBar(progressDialog);
                                 Toast.makeText(context, "email is vaid but not as admin", Toast.LENGTH_SHORT).show();
+                            }
                         }
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
-
+                            hideProgressBar(progressDialog);
                         }
                     });
-                } else
-                    Toast.makeText(context, "wrong email or password", Toast.LENGTH_SHORT).show();
+                } else{
+                    hideProgressBar(progressDialog);
+                    Toast.makeText(context, "wrong email or password", Toast.LENGTH_SHORT).show();}
             }
         });
     }
 
     public static void isEmployValid(String id , Context context){
+        ProgressDialog progressDialog = showProgressBar(context);
         DatabaseReference reference = firebaseDatabase.getReference("employ").child(id);
             reference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if(snapshot.getValue() == null){
-                        Toast.makeText(context, "the id is flaseee", Toast.LENGTH_SHORT).show();
+                        hideProgressBar(progressDialog);
+                        Toast.makeText(context, "Invalid ID", Toast.LENGTH_SHORT).show();
                     }else {
+                        hideProgressBar(progressDialog);
                         String temp = snapshot.getValue().toString();
                         //Toast.makeText(context, "hello " + temp, Toast.LENGTH_SHORT).show();
                         Intent temp2 = new Intent(context , Employ.class);
@@ -153,16 +162,28 @@ public class firebase {
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
-
+                    hideProgressBar(progressDialog);
                 }
             });
     }
 
     public static void addNewEmploy(String name, String id, Context context) {
-        firebaseDatabase.getReference().child("employ").child(id).setValue(name);
+
+        firebaseDatabase.getReference().child("employ").child(id).setValue(name).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(Exception e) {
+            }
+        });
+
     }
 
     public static void registerNewCustomer(String email , String password , CustomerDetail_model obj , Context context){
+        ProgressDialog progressDialog = showProgressBar(context);
         firebaseAuth.createUserWithEmailAndPassword(email , password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
@@ -171,16 +192,36 @@ public class firebase {
                 String token = FirebaseInstanceId.getInstance().getToken();
                 obj.setToken(token);
                 firebaseDatabase.getReference().child("customers account").child(key).setValue(obj);
+                hideProgressBar(progressDialog);
                 Toast.makeText(context, "user created succesfully", Toast.LENGTH_SHORT).show();
                 context.startActivity(new Intent(context , Customer.class));
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(Exception e) {
+                hideProgressBar(progressDialog);
+                Toast.makeText(context , e.getMessage() , Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    public static void pushOrder(TakeOrderModel obj){
+    public static void pushOrder(TakeOrderModel obj , Context context){
+        ProgressDialog progressDialog = showProgressBar(context);
         String key = firebaseDatabase.getReference().child("queue orders").push().getKey();
         obj.setKey(key);
-        firebaseDatabase.getReference().child("queue orders").child(key).setValue(obj);
+        firebaseDatabase.getReference().child("queue orders").child(key).setValue(obj).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(context , "Order Added" , Toast.LENGTH_SHORT).show();
+                hideProgressBar(progressDialog);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(Exception e) {
+                Toast.makeText(context ,  e.getMessage() , Toast.LENGTH_SHORT).show();
+                hideProgressBar(progressDialog);
+            }
+        });
     }
 
     public static DatabaseReference getAllEmployList() {
@@ -238,6 +279,11 @@ public class firebase {
         return firebaseDatabase.getReference().child("user type").child(id);
     }
 
+    public static DatabaseReference getCustomerDetails() {
+        String id = firebaseAuth.getCurrentUser().getUid();
+        return firebaseDatabase.getReference().child("customers account").child(id);
+    }
+
     public static void setValueToSharedPref(String value , Context context){
         SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_PREF_FILE_NAME , Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -277,6 +323,7 @@ public class firebase {
     }
 
     public static void addNewFoodItem(String cardNo, String name, String dis, String price, Uri image, Context context) {
+        ProgressDialog progressDialog = showProgressBar(context);
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageReference = storage.getReference();
 
@@ -297,19 +344,22 @@ public class firebase {
                     }
                 });
 
+                hideProgressBar(progressDialog);
 
-                Toast.makeText(context, "image uploaded", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Item added", Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(context, "failll imageeeee", Toast.LENGTH_SHORT).show();
+                hideProgressBar(progressDialog);
+                Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
     }
 
     public static void editFoodItem(String cardNo, String newName, String dis, String price, Uri image, Context context, String oldName, String OldImageName, String Olduri) {
+        ProgressDialog progressDialog = showProgressBar(context);
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageReference = storage.getReference();
         if (image == null) {
@@ -320,7 +370,19 @@ public class firebase {
                 firebaseDatabase.getReference().child("food items").child(cardNo).child(oldName).removeValue();
 
                 AdminNewItemModel data = new AdminNewItemModel(newName, dis, price, OldImageName, Olduri);
-                firebaseDatabase.getReference().child("food items").child(cardNo).child(newName).setValue(data);
+                firebaseDatabase.getReference().child("food items").child(cardNo).child(newName).setValue(data).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        hideProgressBar(progressDialog);
+                        Toast.makeText(context , "Item Updated" , Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(Exception e) {
+                        hideProgressBar(progressDialog);
+                        Toast.makeText(context , e.getMessage() , Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
             return;
         }
@@ -360,6 +422,7 @@ public class firebase {
     }
 
     public static void placeOrder(String orderP , int priceP , Context context){
+        ProgressDialog progressDialog = showProgressBar(context);
         DatabaseReference reference = firebaseDatabase.getReference().child("customers account").child(firebaseAuth.getCurrentUser().getUid());
        reference.addValueEventListener(new ValueEventListener() {
            @Override
@@ -384,6 +447,7 @@ public class firebase {
                            if(task.isSuccessful()){
                                Toast.makeText(context, "order booked succecflluy", Toast.LENGTH_SHORT).show();
                            }
+                           hideProgressBar(progressDialog);
                        }
                    });
                }
@@ -391,7 +455,7 @@ public class firebase {
 
            @Override
            public void onCancelled(@NonNull DatabaseError error) {
-
+               hideProgressBar(progressDialog);
            }
        });
     }

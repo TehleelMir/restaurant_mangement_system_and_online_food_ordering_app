@@ -97,7 +97,9 @@ public class Customer_foodItems extends AppCompatActivity implements MyAdapterFo
     public void onClick(int position , int itemsCount) {
         AdminNewItemModel temp = list.get(position);
         //firebase.placeOrder(temp , this);
-        int price = Integer.parseInt(temp.getPrice());
+        int tempPrice = Integer.parseInt(temp.getPrice().substring(1));
+        int price = tempPrice;
         AddToBusketModel.list.add(new AddToBusketModel(temp.getName() , itemsCount , price));
+        Toast.makeText(this, "Item Added :) ", Toast.LENGTH_SHORT).show();
     }
 }

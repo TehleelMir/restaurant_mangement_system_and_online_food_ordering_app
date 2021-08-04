@@ -55,10 +55,14 @@ public class Admin_FragmenForEmploy extends Fragment implements CustomDialogBoxF
 
     @Override
     public void onSubmit(String name, String id , int type , String id2) {
-        if(type == 1)
+        if(type == 1){
             firebase.addNewEmploy(name, id, getContext());
-        else if(type == 2)
+            //Toast.makeText(getActivity(), "Empoy Added", Toast.LENGTH_SHORT).show();
+        }
+        else if(type == 2){
             firebase.editEmploy(id2 , name);
+            //Toast.makeText(getContext(), "Empoy Removed", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void setTheRecyclerView(View view){

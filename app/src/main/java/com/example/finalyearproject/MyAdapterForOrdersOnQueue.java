@@ -110,7 +110,7 @@ public class MyAdapterForOrdersOnQueue extends RecyclerView.Adapter<MyAdapterFor
                 TakeOrderModel temp = list.get(getAdapterPosition());
                 firebase.orderDone(temp.getKey());
             }else{
-                Toast.makeText(context, "send message back to the customer", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Firebase Database: Your Firebase Free Storage is full!", Toast.LENGTH_SHORT).show();
             }
         }
     }
